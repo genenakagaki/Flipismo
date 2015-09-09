@@ -21,6 +21,10 @@
 		CEA41ADE1BA0D40800134079 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEA41AC01BA0D40800134079 /* UIKit.framework */; };
 		CEA41AE61BA0D40800134079 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = CEA41AE41BA0D40800134079 /* InfoPlist.strings */; };
 		CEA41AE81BA0D40800134079 /* FlipismoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = CEA41AE71BA0D40800134079 /* FlipismoTests.m */; };
+		CEA41AF71BA0E81D00134079 /* Card.m in Sources */ = {isa = PBXBuildFile; fileRef = CEA41AF61BA0E81D00134079 /* Card.m */; };
+		CEA41AFA1BA0E92100134079 /* PlayingCardDeck.m in Sources */ = {isa = PBXBuildFile; fileRef = CEA41AF91BA0E92100134079 /* PlayingCardDeck.m */; };
+		CEA41AFD1BA0EE5700134079 /* Deck.m in Sources */ = {isa = PBXBuildFile; fileRef = CEA41AFC1BA0EE5700134079 /* Deck.m */; };
+		CEA41B001BA0F61200134079 /* PlayingCard.m in Sources */ = {isa = PBXBuildFile; fileRef = CEA41AFF1BA0F61200134079 /* PlayingCard.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +57,14 @@
 		CEA41AE31BA0D40800134079 /* FlipismoTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "FlipismoTests-Info.plist"; sourceTree = "<group>"; };
 		CEA41AE51BA0D40800134079 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		CEA41AE71BA0D40800134079 /* FlipismoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FlipismoTests.m; sourceTree = "<group>"; };
+		CEA41AF51BA0E81D00134079 /* Card.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Card.h; sourceTree = "<group>"; };
+		CEA41AF61BA0E81D00134079 /* Card.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Card.m; sourceTree = "<group>"; };
+		CEA41AF81BA0E92100134079 /* PlayingCardDeck.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayingCardDeck.h; sourceTree = "<group>"; };
+		CEA41AF91BA0E92100134079 /* PlayingCardDeck.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayingCardDeck.m; sourceTree = "<group>"; };
+		CEA41AFB1BA0EE5700134079 /* Deck.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Deck.h; sourceTree = "<group>"; };
+		CEA41AFC1BA0EE5700134079 /* Deck.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Deck.m; sourceTree = "<group>"; };
+		CEA41AFE1BA0F61200134079 /* PlayingCard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayingCard.h; sourceTree = "<group>"; };
+		CEA41AFF1BA0F61200134079 /* PlayingCard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayingCard.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,6 +124,7 @@
 		CEA41AC21BA0D40800134079 /* Flipismo */ = {
 			isa = PBXGroup;
 			children = (
+				CEA41AF11BA0E6A100134079 /* Models */,
 				CEA41ACB1BA0D40800134079 /* FinalAppDelegate.h */,
 				CEA41ACC1BA0D40800134079 /* FinalAppDelegate.m */,
 				CEA41ACE1BA0D40800134079 /* Main.storyboard */,
@@ -150,6 +163,21 @@
 				CEA41AE41BA0D40800134079 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		CEA41AF11BA0E6A100134079 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				CEA41AF51BA0E81D00134079 /* Card.h */,
+				CEA41AF61BA0E81D00134079 /* Card.m */,
+				CEA41AF81BA0E92100134079 /* PlayingCardDeck.h */,
+				CEA41AF91BA0E92100134079 /* PlayingCardDeck.m */,
+				CEA41AFB1BA0EE5700134079 /* Deck.h */,
+				CEA41AFC1BA0EE5700134079 /* Deck.m */,
+				CEA41AFE1BA0F61200134079 /* PlayingCard.h */,
+				CEA41AFF1BA0F61200134079 /* PlayingCard.m */,
+			);
+			name = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -196,7 +224,7 @@
 		CEA41AB11BA0D40800134079 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				CLASSPREFIX = Final;
+				CLASSPREFIX = CardGame;
 				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = "Lehman College";
 				TargetAttributes = {
@@ -250,9 +278,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CEA41AFA1BA0E92100134079 /* PlayingCardDeck.m in Sources */,
 				CEA41AD31BA0D40800134079 /* FinalViewController.m in Sources */,
+				CEA41B001BA0F61200134079 /* PlayingCard.m in Sources */,
 				CEA41AC91BA0D40800134079 /* main.m in Sources */,
 				CEA41ACD1BA0D40800134079 /* FinalAppDelegate.m in Sources */,
+				CEA41AFD1BA0EE5700134079 /* Deck.m in Sources */,
+				CEA41AF71BA0E81D00134079 /* Card.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

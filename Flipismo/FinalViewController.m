@@ -26,4 +26,12 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (IBAction)touchCardButton:(UIButton *)sender {
+    [sender setBackgroundImage:[UIImage imageNamed:@"cardback"] forState:UIControlStateNormal];
+}
+
 @end
+
+
+// Logging
+// NSLog();
