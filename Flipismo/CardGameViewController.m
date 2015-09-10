@@ -7,23 +7,65 @@
 //
 
 #import "CardGameViewController.h"
+#import "PlayingCardDeck.h"
 
 @interface CardGameViewController ()
+
+@property (weak, nonatomic) IBOutlet UILabel *flipsLabel;
+@property (nonatomic) int flipCount;
+
+@property (strong, nonatomic) PlayingCardDeck *playingCardDeck;
+@property (nonatomic) int cardCount;
+
+//@property (nonatomic) NSArray *shownCards;
 
 @end
 
 @implementation CardGameViewController
 
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
+//#define NUM_PLAYING_CARDS = 52;
+const int NUM_PLAYING_CARDS = 52;
+
+- (void)setFlipCount:(int)flipCount {
+    _flipCount = flipCount;
+    self.flipsLabel.text = [NSString stringWithFormat:@"Flips: %d", self.flipCount];
 }
 
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (PlayingCardDeck *)playingCardDeck {
+    if (!_playingCardDeck) {
+        // lazy instantiation
+        _playingCardDeck = [[PlayingCardDeck alloc] init];
+        
+        self.cardCount = NUM_PLAYING_CARDS;
+        
+//        self.shownCards = [[NSArray alloc] init];
+    }
+    return _playingCardDeck;
+}
+
+- (void)setCardCount:(int)cardCount {
+    _cardCount = cardCount;
+}
+
+- (IBAction)touchCardButton:(UIButton *)sender {
+    if (self.cardCount >= 0) {
+        Card *card;
+        
+        if ([sender.currentTitle length]) {
+            self.cardCount--;
+            
+            [sender setBackgroundImage:[UIImage imageNamed:@"cardback"] forState:UIControlStateNormal];
+            [sender setTitle:@"" forState:UIControlStateNormal];
+        }
+        else {
+            card = [self.playingCardDeck drawRandomCard];
+            
+            [sender setBackgroundImage:[UIImage imageNamed:@"cardfront"] forState:UIControlStateNormal];
+            [sender setTitle:card.contents forState:UIControlStateNormal];
+        }
+        
+        self.flipCount++;
+    }
 }
 
 @end
