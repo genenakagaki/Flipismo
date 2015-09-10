@@ -17,13 +17,10 @@
 @property (strong, nonatomic) PlayingCardDeck *playingCardDeck;
 @property (nonatomic) int cardCount;
 
-//@property (nonatomic) NSArray *shownCards;
-
 @end
 
 @implementation CardGameViewController
 
-//#define NUM_PLAYING_CARDS = 52;
 const int NUM_PLAYING_CARDS = 52;
 
 - (void)setFlipCount:(int)flipCount {
@@ -35,10 +32,6 @@ const int NUM_PLAYING_CARDS = 52;
     if (!_playingCardDeck) {
         // lazy instantiation
         _playingCardDeck = [[PlayingCardDeck alloc] init];
-        
-        self.cardCount = NUM_PLAYING_CARDS;
-        
-//        self.shownCards = [[NSArray alloc] init];
     }
     return _playingCardDeck;
 }
@@ -48,11 +41,17 @@ const int NUM_PLAYING_CARDS = 52;
 }
 
 - (IBAction)touchCardButton:(UIButton *)sender {
-    if (self.cardCount >= 0) {
+    if (self.cardCount <= NUM_PLAYING_CARDS) {
+        NSLog(@"%d", self.cardCount);
+
         Card *card;
         
         if ([sender.currentTitle length]) {
-            self.cardCount--;
+            self.cardCount++;
+            
+            if (self.cardCount < 0) {
+                self.cardCount = -1;
+            }
             
             [sender setBackgroundImage:[UIImage imageNamed:@"cardback"] forState:UIControlStateNormal];
             [sender setTitle:@"" forState:UIControlStateNormal];
