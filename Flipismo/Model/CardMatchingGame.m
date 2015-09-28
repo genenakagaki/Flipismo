@@ -66,8 +66,8 @@ int tempScore = 0;
             card.chosen = NO;
         }
         else {
-            int numSelected;
-            
+            int numSelected = 1;
+            NSLog(@"numToMatch: %d", self.numToMatch);
             for (Card *otherCard in self.cards) {
                 if (otherCard.isChosen && !otherCard.isMatched) {
                     int matchScore = [card match:@[otherCard]];
@@ -89,10 +89,14 @@ int tempScore = 0;
                 }
             }
             
+            NSLog(@"numSelected: %d", numSelected);
+            
             if (numSelected == self.numToMatch) {
+                NSLog(@"3 cards matched");
+
                 for (Card *otherCard in self.cards) {
                     if (otherCard.isChosen && !otherCard.isMatched) {
-                        NSLog(@"3 cards matched");
+                        NSLog(@"switch card to matched");
                         self.score += tempScore * MATCH_BONUS;
                         otherCard.matched = YES;
                         card.matched = YES;

@@ -25,8 +25,11 @@
 @implementation CardGameViewController
 
 - (CardMatchingGame *)game {
-    if (!_game) _game = [[CardMatchingGame alloc] initWithCardCount:[self.cardButtons count]
-                                                          usingDeck:[self createDeck]];
+    if (!_game) {
+        _game = [[CardMatchingGame alloc] initWithCardCount:[self.cardButtons count]
+                                                  usingDeck:[self createDeck]];
+        _game.numToMatch = 2;
+    }
     return _game;
 }
 
@@ -40,11 +43,22 @@
 }
 
 - (IBAction)touchMatchModeSwitch:(UISwitch *)sender {
-    if (_matchModeSwitch.on) {
-        _game.numToMatch = 3;
+    if (!_game.started) {
+        if ([sender isOn]) {
+            _game.numToMatch = 3;
+        }
+        else {
+            _game.numToMatch = 2;
+        }
     }
     else {
-        _game.numToMatch = 2;
+        // disable switch when game is started
+        if ([sender isOn]) {
+            [sender setOn:NO];
+        }
+        else {
+            [sender setOn:YES];
+        }
     }
 }
 
