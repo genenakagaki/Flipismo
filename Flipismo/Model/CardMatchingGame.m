@@ -15,6 +15,9 @@
 
 @implementation CardMatchingGame
 
+@synthesize started = _started;
+
+
 - (NSMutableArray *)cards {
     if (!_cards) _cards = [[NSMutableArray alloc] init];
     return _cards;
@@ -36,6 +39,8 @@
         }
     }
     
+    [self setStarted:NO];
+    
     return self;
 }
 
@@ -47,34 +52,88 @@ static const int COST_TO_CHOOSE   = 1;
 static const int MISMATCH_PENALTY = 2;
 static const int MATCH_BONUS      = 4;
 
+int tempScore = 0;
+
 - (void)chooseCardAtIndex:(NSUInteger)index {
     Card *card = [self cardAtIndex:index];
+    
+    if (!self.isStarted) {
+        [self setStarted:YES];
+    }
     
     if (!card.isMatched) {
         if (card.isChosen) {
             card.chosen = NO;
         }
         else {
-            // match against other chosen cards
+            int numSelected;
+            
             for (Card *otherCard in self.cards) {
                 if (otherCard.isChosen && !otherCard.isMatched) {
                     int matchScore = [card match:@[otherCard]];
+                    
                     if (matchScore) {
-                        self.score += matchScore * MATCH_BONUS;
-                        otherCard.matched = YES;
-                        card.matched = YES;
+                        numSelected++;
+                        tempScore += matchScore;
                     }
                     else {
                         self.score -= MISMATCH_PENALTY;
                         otherCard.chosen = NO;
+                        for (Card *otherCard in self.cards) {
+                            if (otherCard.isChosen && !otherCard.isMatched) {
+                                otherCard.chosen = NO;
+                            }
+                        }
+                        break;
                     }
-                    break; // can only choose 2 cards for now
                 }
             }
+            
+            if (numSelected == self.numToMatch) {
+                for (Card *otherCard in self.cards) {
+                    if (otherCard.isChosen && !otherCard.isMatched) {
+                        NSLog(@"3 cards matched");
+                        self.score += tempScore * MATCH_BONUS;
+                        otherCard.matched = YES;
+                        card.matched = YES;
+                    }
+                }
+            }
+            // match against other chosen cards
+//            for (Card *otherCard in self.cards) {
+//                if (otherCard.isChosen && !otherCard.isMatched) {
+//                    int matchScore = [card match:@[otherCard]];
+//                    if (matchScore) {
+//                        self.score += matchScore * MATCH_BONUS;
+//                        otherCard.matched = YES;
+//                        card.matched = YES;
+//                        
+//                        matchCount++;
+//                        if (matchCount == self.numToMatch) {
+//                            break;
+//                        }
+//                    }
+//                    else {
+//                        self.score -= MISMATCH_PENALTY;
+//                        otherCard.chosen = NO;
+//                    }
+////                    break; // can only choose 2 cards for now
+//                }
+//            }
             self.score -= COST_TO_CHOOSE;
             card.chosen = YES;
         }
     }
+}
+
+// getter
+- (BOOL)isStarted {
+    return _started;
+}
+
+// setter
+- (void)setStarted:(BOOL)started {
+    _started = started;
 }
 
 @end

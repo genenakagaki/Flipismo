@@ -13,12 +13,30 @@
 - (int)match:(NSArray *)otherCards {
     int score = 0;
     
+//    using introspection
+//    if ([otherCards count] == 1) {
+//        id card = [otherCards firstObject];
+//        if ([card isKindOfClass:[PlayingCard class]]) {
+//            PlayingCard *otherPlayingCard = (PlayingCard *)card;
+//            if (otherPlayingCard.rank == self.rank) {
+//                score = 4;
+//                NSLog(@"rank matched");
+//            }
+//            else if ([otherPlayingCard.suit isEqualToString:self.suit]) {
+//                score = 1;
+//                NSLog(@"suit matched");
+//            }
+//        }
+//    }
+    
     for (PlayingCard *otherCard in otherCards) {
         if (otherCard.rank == self.rank) {
             score = 4;
+            NSLog(@"rank matched");
         }
         else if ([otherCard.suit isEqualToString:self.suit]) {
             score = 1;
+            NSLog(@"suit matched");
         }
     }
     
