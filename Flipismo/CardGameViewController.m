@@ -8,6 +8,7 @@
 
 #import "CardGameViewController.h"
 #import "PlayingCardDeck.h"
+#import "PlayingCard.h"
 #import "CardMatchingGame.h"
 
 @interface CardGameViewController ()
@@ -16,6 +17,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *scoreLabel;
 @property (weak, nonatomic) IBOutlet UIButton *redealButton;
 @property (weak, nonatomic) IBOutlet UISwitch *matchModeSwitch;
+@property (weak, nonatomic) IBOutlet UILabel *matchModeLabel;
 
 //@property (strong, nonatomic) PlayingCardDeck *playingCardDeck;
 //@property (nonatomic) int cardCount;
@@ -43,12 +45,15 @@
 }
 
 - (IBAction)touchMatchModeSwitch:(UISwitch *)sender {
+    NSLog(@"gameStarted: %d", _game.started);
     if (!_game.started) {
         if ([sender isOn]) {
             _game.numToMatch = 3;
+            [self.matchModeLabel setText:@"3 Card Match"];
         }
         else {
             _game.numToMatch = 2;
+            [self.matchModeLabel setText:@"2 Card Match"];
         }
     }
     else {
@@ -72,6 +77,21 @@
     for (UIButton *cardButton in self.cardButtons) {
         int cardButtonIndex = [self.cardButtons indexOfObject:cardButton];
         Card *card = [self.game cardAtIndex:cardButtonIndex];
+        
+        // determine color of card
+        if (card.isChosen) {
+            if ([card isKindOfClass:[PlayingCard class]]) {
+                PlayingCard *playingCard = (PlayingCard *)card;
+                if (    [playingCard.suit isEqualToString:@"♥︎"] ||
+                        [playingCard.suit isEqualToString:@"♦︎"]) {
+                    [cardButton setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
+                }
+                else {
+                    [cardButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+                }
+            }
+        }
+        
         [cardButton setTitle:[self titleForCard:card] forState:UIControlStateNormal];
         [cardButton setBackgroundImage:[self backgroundImageForCard:card] forState:UIControlStateNormal];
         cardButton.enabled = !card.isMatched;

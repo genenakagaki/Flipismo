@@ -384,11 +384,10 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6cf-uc-2lw">
-                                <rect key="frame" x="20" y="382" width="64" height="25"/>
+                                <rect key="frame" x="20" y="389" width="64" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Restart" backgroundImage="cardfront">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Deal"/>
                                 <connections>
                                     <action selector="touchRedealButton:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="tvS-fv-MN2"/>
                                 </connections>
@@ -400,12 +399,20 @@
                                     <action selector="touchMatchModeSwitch:" destination="vXZ-lx-hvc" eventType="valueChanged" id="CUZ-T9-TJh"/>
                                 </connections>
                             </switch>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="2 Card Match" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KR9-Wp-HHI">
+                                <rect key="frame" x="108" y="407" width="105" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="highlightedColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="0.25098040700000002" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <connections>
-                        <outlet property="matchModeSwitch" destination="JDh-75-fdz" id="lzy-S9-yf0"/>
-                        <outlet property="redealButton" destination="6cf-uc-2lw" id="JTd-YH-bm3"/>
+                        <outlet property="matchModeLabel" destination="KR9-Wp-HHI" id="dOz-5j-tWS"/>
+                        <outlet property="matchModeSwitch" destination="JDh-75-fdz" id="jxE-gN-7he"/>
+                        <outlet property="redealButton" destination="6cf-uc-2lw" id="vq8-LW-Eyh"/>
                         <outlet property="scoreLabel" destination="JK3-F7-Mc9" id="Qkk-wA-gBa"/>
                         <outletCollection property="cardButtons" destination="WrK-t7-oKC" id="pa4-WQ-j4F"/>
                         <outletCollection property="cardButtons" destination="Ay8-1F-MjG" id="mtR-yh-YlX"/>
@@ -445,7 +452,6 @@
     </scenes>
     <resources>
         <image name="cardback" width="64" height="96"/>
-        <image name="cardfront" width="64" height="96"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
