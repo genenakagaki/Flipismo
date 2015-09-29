@@ -21,5 +21,6 @@
 @property (nonatomic, getter = isStarted) BOOL started;
 @property (nonatomic, readonly) NSInteger score;
 @property (nonatomic) NSInteger numToMatch;
+@property (nonatomic) NSString *lastAction;
 
 @end

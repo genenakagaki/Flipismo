@@ -16,7 +16,7 @@
 @implementation CardMatchingGame
 
 @synthesize started = _started;
-
+@synthesize lastAction = _lastAction;
 
 - (NSMutableArray *)cards {
     if (!_cards) _cards = [[NSMutableArray alloc] init];
@@ -40,6 +40,7 @@
     }
     
     [self setStarted:NO];
+    self.lastAction = @"";
     
     return self;
 }
@@ -64,8 +65,10 @@ int tempScore = 0;
     if (!card.isMatched) {
         if (card.isChosen) {
             card.chosen = NO;
+            self.lastAction = @"";
         }
         else {
+            self.lastAction = @"%d", [card contents];
             int numSelected = 1;
             NSLog(@"numToMatch: %d", self.numToMatch);
             for (Card *otherCard in self.cards) {
@@ -84,6 +87,8 @@ int tempScore = 0;
                                 otherCard.chosen = NO;
                             }
                         }
+                        
+                        self.lastAction = @"%d %d don't match! 2 point penalty!", [card contents], [otherCard contents];
                         break;
                     }
                 }
@@ -92,14 +97,16 @@ int tempScore = 0;
             NSLog(@"numSelected: %d", numSelected);
             
             if (numSelected == self.numToMatch) {
-                NSLog(@"3 cards matched");
-
+                self.lastAction = @"Matched %d ", [card contents];
+                
                 for (Card *otherCard in self.cards) {
                     if (otherCard.isChosen && !otherCard.isMatched) {
-                        NSLog(@"switch card to matched");
                         self.score += tempScore * MATCH_BONUS;
                         otherCard.matched = YES;
                         card.matched = YES;
+                        
+                        NSString *cardContent = @"%d ", [otherCard.contents];
+                        self.lastAction = [self.lastAction stringByAppendingString:cardContent];
                     }
                 }
             }

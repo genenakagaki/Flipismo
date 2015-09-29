@@ -18,6 +18,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *redealButton;
 @property (weak, nonatomic) IBOutlet UISwitch *matchModeSwitch;
 @property (weak, nonatomic) IBOutlet UILabel *matchModeLabel;
+@property (weak, nonatomic) IBOutlet UILabel *resultLabel;
 
 //@property (strong, nonatomic) PlayingCardDeck *playingCardDeck;
 //@property (nonatomic) int cardCount;
@@ -30,7 +31,12 @@
     if (!_game) {
         _game = [[CardMatchingGame alloc] initWithCardCount:[self.cardButtons count]
                                                   usingDeck:[self createDeck]];
-        _game.numToMatch = 2;
+        if ([_matchModeSwitch isOn]) {
+            self.game.numToMatch = 3;
+        }
+        else {
+            self.game.numToMatch = 2;
+        }
     }
     return _game;
 }
@@ -41,18 +47,19 @@
 
 - (IBAction)touchRedealButton:(UIButton *)sender {
     _game = nil;
+    
     [self updateUI];
 }
 
 - (IBAction)touchMatchModeSwitch:(UISwitch *)sender {
-    NSLog(@"gameStarted: %d", _game.started);
-    if (!_game.started) {
+    NSLog(@"gameStarted: %d", self.game.started);
+    if (!self.game.started) {
         if ([sender isOn]) {
-            _game.numToMatch = 3;
+            self.game.numToMatch = 3;
             [self.matchModeLabel setText:@"3 Card Match"];
         }
         else {
-            _game.numToMatch = 2;
+            self.game.numToMatch = 2;
             [self.matchModeLabel setText:@"2 Card Match"];
         }
     }
