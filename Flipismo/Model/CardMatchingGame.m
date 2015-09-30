@@ -53,8 +53,6 @@ static const int COST_TO_CHOOSE   = 1;
 static const int MISMATCH_PENALTY = 2;
 static const int MATCH_BONUS      = 4;
 
-int tempScore = 0;
-
 - (void)chooseCardAtIndex:(NSUInteger)index {
     Card *card = [self cardAtIndex:index];
     
@@ -68,7 +66,9 @@ int tempScore = 0;
             self.lastAction = @"";
         }
         else {
-            self.lastAction = @"%d", [card contents];
+            int tempScore = 0;
+            
+            self.lastAction = card.contents;
             int numSelected = 1;
             NSLog(@"numToMatch: %d", self.numToMatch);
             for (Card *otherCard in self.cards) {
@@ -80,6 +80,8 @@ int tempScore = 0;
                         tempScore += matchScore;
                     }
                     else {
+                        tempScore = 0;
+                        
                         self.score -= MISMATCH_PENALTY;
                         otherCard.chosen = NO;
                         for (Card *otherCard in self.cards) {
@@ -88,7 +90,9 @@ int tempScore = 0;
                             }
                         }
                         
-                        self.lastAction = @"%d %d don't match! 2 point penalty!", [card contents], [otherCard contents];
+                        self.lastAction = [NSString stringWithFormat:@"%@ %@ don't match! 2 point penalty!",
+                                           card.contents,
+                                           otherCard.contents];
                         break;
                     }
                 }
@@ -97,40 +101,24 @@ int tempScore = 0;
             NSLog(@"numSelected: %d", numSelected);
             
             if (numSelected == self.numToMatch) {
-                self.lastAction = @"Matched %d ", [card contents];
+                self.lastAction = [NSString stringWithFormat:@"Matched %@ ", card.contents];
                 
                 for (Card *otherCard in self.cards) {
                     if (otherCard.isChosen && !otherCard.isMatched) {
-                        self.score += tempScore * MATCH_BONUS;
                         otherCard.matched = YES;
                         card.matched = YES;
                         
-                        NSString *cardContent = @"%d ", [otherCard.contents];
-                        self.lastAction = [self.lastAction stringByAppendingString:cardContent];
+                        self.lastAction = [self.lastAction stringByAppendingString:otherCard.contents];
                     }
                 }
+                
+                tempScore = tempScore * MATCH_BONUS;
+                self.score += tempScore;
+
+                NSString *stringToAppend = [NSString stringWithFormat:@"for %d points.", tempScore];
+                self.lastAction = [self.lastAction stringByAppendingString:stringToAppend];
             }
-            // match against other chosen cards
-//            for (Card *otherCard in self.cards) {
-//                if (otherCard.isChosen && !otherCard.isMatched) {
-//                    int matchScore = [card match:@[otherCard]];
-//                    if (matchScore) {
-//                        self.score += matchScore * MATCH_BONUS;
-//                        otherCard.matched = YES;
-//                        card.matched = YES;
-//                        
-//                        matchCount++;
-//                        if (matchCount == self.numToMatch) {
-//                            break;
-//                        }
-//                    }
-//                    else {
-//                        self.score -= MISMATCH_PENALTY;
-//                        otherCard.chosen = NO;
-//                    }
-////                    break; // can only choose 2 cards for now
-//                }
-//            }
+            
             self.score -= COST_TO_CHOOSE;
             card.chosen = YES;
         }

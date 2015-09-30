@@ -37,6 +37,8 @@
         else {
             self.game.numToMatch = 2;
         }
+        
+        self.game.lastAction = @"";
     }
     return _game;
 }
@@ -103,6 +105,9 @@
         [cardButton setBackgroundImage:[self backgroundImageForCard:card] forState:UIControlStateNormal];
         cardButton.enabled = !card.isMatched;
         self.scoreLabel.text = [NSString stringWithFormat:@"Score: %d", self.game.score];
+        
+        
+        [self.resultLabel setText:self.game.lastAction];
     }
     
 }
