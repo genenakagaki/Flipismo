@@ -12,6 +12,7 @@
 		CE3833451BAA1032008FDCC3 /* PlayingCard.m in Sources */ = {isa = PBXBuildFile; fileRef = CE3833401BAA1032008FDCC3 /* PlayingCard.m */; };
 		CE3833461BAA1032008FDCC3 /* PlayingCardDeck.m in Sources */ = {isa = PBXBuildFile; fileRef = CE3833421BAA1032008FDCC3 /* PlayingCardDeck.m */; };
 		CE3833491BAA105E008FDCC3 /* CardMatchingGame.m in Sources */ = {isa = PBXBuildFile; fileRef = CE3833481BAA105E008FDCC3 /* CardMatchingGame.m */; };
+		CE43D8051BCEF36A00389127 /* SetCard.m in Sources */ = {isa = PBXBuildFile; fileRef = CE43D8041BCEF36A00389127 /* SetCard.m */; };
 		CE82D7141BA222A80000F49D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE82D7131BA222A80000F49D /* Foundation.framework */; };
 		CE82D7161BA222A80000F49D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE82D7151BA222A80000F49D /* CoreGraphics.framework */; };
 		CE82D7181BA222A80000F49D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE82D7171BA222A80000F49D /* UIKit.framework */; };
@@ -49,6 +50,8 @@
 		CE3833421BAA1032008FDCC3 /* PlayingCardDeck.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PlayingCardDeck.m; path = Model/PlayingCardDeck.m; sourceTree = "<group>"; };
 		CE3833471BAA105E008FDCC3 /* CardMatchingGame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CardMatchingGame.h; path = Model/CardMatchingGame.h; sourceTree = "<group>"; };
 		CE3833481BAA105E008FDCC3 /* CardMatchingGame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CardMatchingGame.m; path = Model/CardMatchingGame.m; sourceTree = "<group>"; };
+		CE43D8031BCEF36A00389127 /* SetCard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SetCard.h; path = Model/SetCard.h; sourceTree = "<group>"; };
+		CE43D8041BCEF36A00389127 /* SetCard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SetCard.m; path = Model/SetCard.m; sourceTree = "<group>"; };
 		CE82D7101BA222A80000F49D /* Flipismo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Flipismo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE82D7131BA222A80000F49D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		CE82D7151BA222A80000F49D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -171,6 +174,8 @@
 		CE82D7481BA223EA0000F49D /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				CE43D8031BCEF36A00389127 /* SetCard.h */,
+				CE43D8041BCEF36A00389127 /* SetCard.m */,
 				CE3833471BAA105E008FDCC3 /* CardMatchingGame.h */,
 				CE3833481BAA105E008FDCC3 /* CardMatchingGame.m */,
 				CE38333B1BAA101A008FDCC3 /* Card.h */,
@@ -291,6 +296,7 @@
 				CE3833461BAA1032008FDCC3 /* PlayingCardDeck.m in Sources */,
 				CE82D7201BA222A80000F49D /* main.m in Sources */,
 				CE3833431BAA1032008FDCC3 /* Card.m in Sources */,
+				CE43D8051BCEF36A00389127 /* SetCard.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

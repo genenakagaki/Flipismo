@@ -16,12 +16,7 @@
 @property (strong, nonatomic) IBOutletCollection(UIButton) NSArray *cardButtons;
 @property (weak, nonatomic) IBOutlet UILabel *scoreLabel;
 @property (weak, nonatomic) IBOutlet UIButton *redealButton;
-@property (weak, nonatomic) IBOutlet UISwitch *matchModeSwitch;
-@property (weak, nonatomic) IBOutlet UILabel *matchModeLabel;
 @property (weak, nonatomic) IBOutlet UILabel *resultLabel;
-
-//@property (strong, nonatomic) PlayingCardDeck *playingCardDeck;
-//@property (nonatomic) int cardCount;
 
 @end
 
@@ -31,12 +26,7 @@
     if (!_game) {
         _game = [[CardMatchingGame alloc] initWithCardCount:[self.cardButtons count]
                                                   usingDeck:[self createDeck]];
-        if ([_matchModeSwitch isOn]) {
-            self.game.numToMatch = 3;
-        }
-        else {
-            self.game.numToMatch = 2;
-        }
+        self.game.numToMatch = 2;
         
         self.game.lastAction = @"";
     }
@@ -51,29 +41,6 @@
     _game = nil;
     
     [self updateUI];
-}
-
-- (IBAction)touchMatchModeSwitch:(UISwitch *)sender {
-    NSLog(@"gameStarted: %d", self.game.started);
-    if (!self.game.started) {
-        if ([sender isOn]) {
-            self.game.numToMatch = 3;
-            [self.matchModeLabel setText:@"3 Card Match"];
-        }
-        else {
-            self.game.numToMatch = 2;
-            [self.matchModeLabel setText:@"2 Card Match"];
-        }
-    }
-    else {
-        // disable switch when game is started
-        if ([sender isOn]) {
-            [sender setOn:NO];
-        }
-        else {
-            [sender setOn:YES];
-        }
-    }
 }
 
 - (IBAction)touchCardButton:(UIButton *)sender {

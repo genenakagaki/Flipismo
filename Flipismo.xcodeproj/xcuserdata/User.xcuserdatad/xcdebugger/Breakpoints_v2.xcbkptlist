@@ -26,11 +26,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Flipismo/CardGameViewController.m"
-            timestampString = "465337420.918201"
+            timestampString = "465950159.376338"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "80"
-            endingLineNumber = "80"
+            startingLineNumber = "48"
+            endingLineNumber = "48"
             landmarkName = "-touchCardButton:"
             landmarkType = "5">
          </BreakpointContent>
@@ -42,11 +42,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Flipismo/CardGameViewController.m"
-            timestampString = "465337900.778442"
+            timestampString = "465950159.376338"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "103"
-            endingLineNumber = "103"
+            startingLineNumber = "71"
+            endingLineNumber = "71"
             landmarkName = "-updateUI"
             landmarkType = "5">
          </BreakpointContent>
@@ -74,11 +74,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Flipismo/Model/CardMatchingGame.m"
-            timestampString = "465338003.447901"
+            timestampString = "466554932.236782"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "131"
-            endingLineNumber = "131"
+            startingLineNumber = "175"
+            endingLineNumber = "175"
             landmarkName = "-isStarted"
             landmarkType = "5">
          </BreakpointContent>
