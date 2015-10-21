@@ -8,14 +8,16 @@
 
 #import "Card.h"
 
-@interface SetCard : NSObject
+@interface SetCard : Card
 
 @property (strong, nonatomic) NSString *shape;
-@property (nonatomic) UIColor *color;
-@property (nonatomic) NSInteger shading;
+@property (nonatomic) NSString *color;
+@property (nonatomic) NSString *shading;
 @property (nonatomic) NSInteger num;
 
 + (NSArray *)validShapes;
-+ (NSUInteger)maxRank;
++ (NSArray *)validColors;
++ (NSArray *)validShading;
++ (NSUInteger)maxNum;
 
 @end

@@ -6,14 +6,14 @@
 //  Copyright (c) 2015 Lehman College. All rights reserved.
 //
 
-#import "CardGameViewController.h"
-#import "PlayingCardDeck.h"
-#import "PlayingCard.h"
+#import "SetGameViewController.h"
+#import "SetCardDeck.h"
+#import "SetCard.h"
 #import "CardMatchingGame.h"
-#import "History.h"
 #import "HistoryViewController.h"
+#import "History.h"
 
-@interface CardGameViewController ()
+@interface SetGameViewController ()
 @property (strong, nonatomic) CardMatchingGame *game;
 @property (strong, nonatomic) IBOutletCollection(UIButton) NSArray *cardButtons;
 @property (weak, nonatomic) IBOutlet UILabel *scoreLabel;
@@ -22,24 +22,31 @@
 
 @end
 
-@implementation CardGameViewController
+@implementation SetGameViewController
 
 - (CardMatchingGame *)game {
     if (!_game) {
         _game = [[CardMatchingGame alloc] initWithCardCount:[self.cardButtons count]
                                                   usingDeck:[self createDeck]];
-        self.game.numToMatch = 2;
+        self.game.numToMatch = 3;
     }
     return _game;
 }
 
 - (Deck *)createDeck {
-    return [[PlayingCardDeck alloc] init];
+    return [[SetCardDeck alloc] init];
 }
 
 - (IBAction)touchRedealButton:(UIButton *)sender {
     _game = nil;
     
+    [self updateUI];
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewDidLoad];
+
+    [self game];
     [self updateUI];
 }
 
@@ -54,27 +61,14 @@
         int cardButtonIndex = [self.cardButtons indexOfObject:cardButton];
         Card *card = [self.game cardAtIndex:cardButtonIndex];
         
-        // determine color of card
-        if (card.isChosen) {
-            if ([card isKindOfClass:[PlayingCard class]]) {
-                PlayingCard *playingCard = (PlayingCard *)card;
-                if (    [playingCard.suit isEqualToString:@"♥︎"] ||
-                        [playingCard.suit isEqualToString:@"♦︎"]) {
-                    [cardButton setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
-                }
-                else {
-                    [cardButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-                }
-            }
-        }
-        
-        [cardButton setTitle:[self titleForCard:card] forState:UIControlStateNormal];
+        [cardButton setAttributedTitle:[self contentOf:(SetCard *)card] forState:UIControlStateNormal];
         [cardButton setBackgroundImage:[self backgroundImageForCard:card] forState:UIControlStateNormal];
         cardButton.enabled = !card.isMatched;
         self.scoreLabel.text = [NSString stringWithFormat:@"Score: %d", self.game.score];
-        
-        [self.resultLabel setAttributedText:[self lastAction]];
     }
+    
+    [self.resultLabel setAttributedText:[self lastAction]];
+    
 }
 
 - (NSString *)titleForCard:(Card *)card {
@@ -82,7 +76,46 @@
 }
 
 - (UIImage *)backgroundImageForCard:(Card *)card {
-    return [UIImage imageNamed:card.isChosen ? @"cardfront" : @"cardback"];
+    if (card.isChosen) {
+        if (!card.isMatched) {
+            return [UIImage imageNamed:@"setCard"];
+        }
+    }
+    
+    return [UIImage imageNamed:@"cardfront"];
+}
+
+- (NSAttributedString *)contentOf:(SetCard *)card {
+    UIColor *color = [UIColor blueColor];
+    
+    if ([card.color isEqualToString:@"red"]) {
+        color = [UIColor redColor];
+    }
+    else if ([card.color isEqualToString:@"green"]) {
+        color = [UIColor greenColor];
+    }
+    
+    NSMutableAttributedString *shape;
+    shape = [[NSMutableAttributedString alloc] initWithString:card.shape];
+    
+    if ([card.shading isEqualToString:@"filled"]) {
+        [shape addAttribute:NSForegroundColorAttributeName value:color range:NSMakeRange(0, shape.length)];
+    }
+    else if ([card.shading isEqualToString:@"shaded"]) {
+        color = [color colorWithAlphaComponent:0.2f];
+        [shape addAttribute:NSForegroundColorAttributeName value:color range:NSMakeRange(0, shape.length)];
+    }
+    else if ([card.shading isEqualToString:@"outlined"]) {
+        [shape addAttribute:NSStrokeColorAttributeName value:color range:NSMakeRange(0, shape.length)];
+        [shape addAttribute:NSStrokeWidthAttributeName value:@5 range:NSMakeRange(0, shape.length)];
+    }
+    
+    NSMutableAttributedString *result = [[NSMutableAttributedString alloc] init];
+    for (int i = 0; i < card.num; i++) {
+        [result appendAttributedString:shape];
+    }
+    
+    return result;
 }
 
 - (NSAttributedString *)lastAction {
@@ -94,15 +127,11 @@
     NSMutableAttributedString *result;
     result = [[NSMutableAttributedString alloc] init];
     
-    NSMutableAttributedString *card;
-
-    for (PlayingCard *playingCard in history.cards) {
-        card = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@"%@ ", playingCard.contents]];
-        if (    [playingCard.suit isEqualToString:@"♥︎"] ||
-                [playingCard.suit isEqualToString:@"♦︎"]) {
-            [card addAttribute:NSForegroundColorAttributeName value:[UIColor redColor] range:NSMakeRange(0, card.length)];
-        }
-        
+    NSAttributedString *card;
+    
+    for (SetCard *setCard in history.cards) {
+        card = [self contentOf:setCard];
+    
         [result appendAttributedString:card];
     }
     
@@ -116,7 +145,7 @@
     }
     
     [result appendAttributedString:str];
-
+    
     
     return result;
 }
@@ -124,14 +153,14 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     // Make sure your segue name in storyboard is the same as this line
-    if ([[segue identifier] isEqualToString:@"machismoHistory"])
+    if ([[segue identifier] isEqualToString:@"setHistory"])
     {
         // Get reference to the destination view controller
         HistoryViewController *vc = [segue destinationViewController];
         
         // Pass any objects to the view controller here, like...
         vc.history = self.game.history;
-        vc.game = @"machismo";
+        vc.game = @"set";
     }
 }
 
