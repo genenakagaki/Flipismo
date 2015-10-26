@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>F4B95042-5EA9-4AE1-9CB8-73D404048187</string>
+	<key>IDESourceControlProjectName</key>
+	<string>Flipismo</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>0D2D94A4-28F1-4A64-92F3-B95889D4A84D</key>
+		<string>https://github.com/kagen47/Flipismo</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>Flipismo.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>0D2D94A4-28F1-4A64-92F3-B95889D4A84D</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/kagen47/Flipismo</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>0D2D94A4-28F1-4A64-92F3-B95889D4A84D</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>0D2D94A4-28F1-4A64-92F3-B95889D4A84D</string>
+			<key>IDESourceControlWCCName</key>
+			<string>Flipismo</string>
+		</dict>
+	</array>
+</dict>
+</plist>
