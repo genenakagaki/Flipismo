@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		CE12B8FE1BD819B900302EA7 /* History.m in Sources */ = {isa = PBXBuildFile; fileRef = CE12B8FD1BD819B900302EA7 /* History.m */; };
+		CE2E00531BE800010013D134 /* PlayingCardView.m in Sources */ = {isa = PBXBuildFile; fileRef = CE2E00521BE800010013D134 /* PlayingCardView.m */; };
+		CE2E00561BE800710013D134 /* TestViewContoller.m in Sources */ = {isa = PBXBuildFile; fileRef = CE2E00551BE800710013D134 /* TestViewContoller.m */; };
+		CE2E005C1BE8135B0013D134 /* SetCardView.m in Sources */ = {isa = PBXBuildFile; fileRef = CE2E005B1BE8135B0013D134 /* SetCardView.m */; };
+		CE2E005F1BE8300F0013D134 /* Grid.m in Sources */ = {isa = PBXBuildFile; fileRef = CE2E005E1BE8300F0013D134 /* Grid.m */; };
 		CE3833431BAA1032008FDCC3 /* Card.m in Sources */ = {isa = PBXBuildFile; fileRef = CE38333C1BAA1032008FDCC3 /* Card.m */; };
 		CE3833441BAA1032008FDCC3 /* Deck.m in Sources */ = {isa = PBXBuildFile; fileRef = CE38333E1BAA1032008FDCC3 /* Deck.m */; };
 		CE3833451BAA1032008FDCC3 /* PlayingCard.m in Sources */ = {isa = PBXBuildFile; fileRef = CE3833401BAA1032008FDCC3 /* PlayingCard.m */; };
@@ -46,6 +50,15 @@
 /* Begin PBXFileReference section */
 		CE12B8FC1BD819B900302EA7 /* History.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = History.h; path = Model/History.h; sourceTree = "<group>"; };
 		CE12B8FD1BD819B900302EA7 /* History.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = History.m; path = Model/History.m; sourceTree = "<group>"; };
+		CE2E00511BE800010013D134 /* PlayingCardView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayingCardView.h; sourceTree = "<group>"; };
+		CE2E00521BE800010013D134 /* PlayingCardView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayingCardView.m; sourceTree = "<group>"; };
+		CE2E00541BE800710013D134 /* TestViewContoller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestViewContoller.h; sourceTree = "<group>"; };
+		CE2E00551BE800710013D134 /* TestViewContoller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestViewContoller.m; sourceTree = "<group>"; };
+		CE2E00571BE805AE0013D134 /* Config.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Config.h; sourceTree = "<group>"; };
+		CE2E005A1BE8135B0013D134 /* SetCardView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SetCardView.h; sourceTree = "<group>"; };
+		CE2E005B1BE8135B0013D134 /* SetCardView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SetCardView.m; sourceTree = "<group>"; };
+		CE2E005D1BE8300F0013D134 /* Grid.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Grid.h; sourceTree = "<group>"; };
+		CE2E005E1BE8300F0013D134 /* Grid.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Grid.m; sourceTree = "<group>"; };
 		CE38333B1BAA101A008FDCC3 /* Card.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Card.h; path = Model/Card.h; sourceTree = "<group>"; };
 		CE38333C1BAA1032008FDCC3 /* Card.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Card.m; path = Model/Card.m; sourceTree = "<group>"; };
 		CE38333D1BAA1032008FDCC3 /* Deck.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Deck.h; path = Model/Deck.h; sourceTree = "<group>"; };
@@ -142,6 +155,8 @@
 		CE82D7191BA222A80000F49D /* Flipismo */ = {
 			isa = PBXGroup;
 			children = (
+				CE2E005D1BE8300F0013D134 /* Grid.h */,
+				CE2E005E1BE8300F0013D134 /* Grid.m */,
 				CE82D7481BA223EA0000F49D /* Model */,
 				CE82D7221BA222A80000F49D /* CardGameAppDelegate.h */,
 				CE82D7231BA222A80000F49D /* CardGameAppDelegate.m */,
@@ -154,6 +169,13 @@
 				CE8971191BD5807A00D19004 /* SetGameViewController.m */,
 				CE89711B1BD5AEAD00D19004 /* HistoryViewController.h */,
 				CE89711C1BD5AEAD00D19004 /* HistoryViewController.m */,
+				CE2E00511BE800010013D134 /* PlayingCardView.h */,
+				CE2E00521BE800010013D134 /* PlayingCardView.m */,
+				CE2E00541BE800710013D134 /* TestViewContoller.h */,
+				CE2E00551BE800710013D134 /* TestViewContoller.m */,
+				CE2E00571BE805AE0013D134 /* Config.h */,
+				CE2E005A1BE8135B0013D134 /* SetCardView.h */,
+				CE2E005B1BE8135B0013D134 /* SetCardView.m */,
 			);
 			path = Flipismo;
 			sourceTree = "<group>";
@@ -314,11 +336,15 @@
 				CE82D7241BA222A80000F49D /* CardGameAppDelegate.m in Sources */,
 				CE82D72A1BA222A80000F49D /* CardGameViewController.m in Sources */,
 				CE12B8FE1BD819B900302EA7 /* History.m in Sources */,
+				CE2E005F1BE8300F0013D134 /* Grid.m in Sources */,
 				CE3833491BAA105E008FDCC3 /* CardMatchingGame.m in Sources */,
 				CE8971171BD5760A00D19004 /* SetCardDeck.m in Sources */,
 				CE3833461BAA1032008FDCC3 /* PlayingCardDeck.m in Sources */,
+				CE2E005C1BE8135B0013D134 /* SetCardView.m in Sources */,
+				CE2E00561BE800710013D134 /* TestViewContoller.m in Sources */,
 				CE82D7201BA222A80000F49D /* main.m in Sources */,
 				CE3833431BAA1032008FDCC3 /* Card.m in Sources */,
+				CE2E00531BE800010013D134 /* PlayingCardView.m in Sources */,
 				CE43D8051BCEF36A00389127 /* SetCard.m in Sources */,
 				CE89711D1BD5AEAD00D19004 /* HistoryViewController.m in Sources */,
 			);

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13F1112" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="0gv-tB-S1r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13F1112" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="hyc-cE-wLL">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
@@ -861,6 +861,48 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MPY-oF-djb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-38" y="96"/>
+        </scene>
+        <!--Test View Contoller-->
+        <scene sceneID="izA-eq-c1E">
+            <objects>
+                <viewController id="hyc-cE-wLL" customClass="TestViewContoller" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="HL1-Hl-GXx"/>
+                        <viewControllerLayoutGuide type="bottom" id="NNx-2Z-OOo"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="U5t-Ta-MRe">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="v22-ar-eHH" customClass="SetCardView">
+                                <rect key="frame" x="77" y="91" width="167" height="297"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="MIn-RB-S9m" appends="YES" id="dyU-7J-aQp"/>
+                                </connections>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" red="0.0" green="0.50196081399917603" blue="0.50196081399917603" alpha="1" colorSpace="calibratedRGB"/>
+                        <gestureRecognizers/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="KBa-is-IbV" appends="YES" id="cgg-bI-JDN"/>
+                        </connections>
+                    </view>
+                    <connections>
+                        <outlet property="setCardView" destination="v22-ar-eHH" id="kX2-kp-aee"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Al4-OK-boT" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="KBa-is-IbV"/>
+                <swipeGestureRecognizer direction="right" id="MIn-RB-S9m">
+                    <connections>
+                        <action selector="swipe:" destination="hyc-cE-wLL" id="SUd-Sq-EWC"/>
+                    </connections>
+                </swipeGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="-32" y="709"/>
         </scene>
         <!--Navigation Controller - Set-->
         <scene sceneID="bED-lM-Tsx">
