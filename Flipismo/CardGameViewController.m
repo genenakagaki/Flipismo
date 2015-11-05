@@ -36,7 +36,7 @@ static const CGSize CARD_SIZE = {40, 60};
 {
     [super viewDidLoad];
     
-    [self createCardViews];
+    [self updateUI];
 }
 
 - (void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation {
@@ -53,6 +53,8 @@ static const CGSize CARD_SIZE = {40, 60};
     if (!_game) {
         _game = [[CardMatchingGame alloc] initWithCardCount:self.grid.minimumNumberOfCells
                                                   usingDeck:[self createDeck]];
+        [self createCardViews];
+        
         self.game.numToMatch = 2;
     }
     return _game;
@@ -70,7 +72,6 @@ static const CGSize CARD_SIZE = {40, 60};
 }
 
 - (Deck *)createDeck {
-    [self createCardViews];
     return [[PlayingCardDeck alloc] init];
 }
 
@@ -82,7 +83,9 @@ static const CGSize CARD_SIZE = {40, 60};
     for (int i = 0; i < self.grid.minimumNumberOfCells; i++) {
         PlayingCardView *cardView = [[PlayingCardView alloc] init];
         
-        [cardView setBackgroundColor:[UIColor greenColor]];
+        UIColor *transparent = [UIColor whiteColor];
+        transparent = [transparent colorWithAlphaComponent:0.0f];
+        cardView.backgroundColor = transparent;
         
         PlayingCard *card = (PlayingCard *)[self.game cardAtIndex:[self.cardViews count]];
         cardView.rank = card.rank;
@@ -112,6 +115,7 @@ static const CGSize CARD_SIZE = {40, 60};
         CGRect cell = [self.grid frameOfCellAtRow:row inColumn:col];
         CGRect frame = CGRectMake(0, 0, cell.size.width-8, cell.size.height-8);
         cardView.frame = frame;
+        
         
         [self animateCardTranslation:cardView
                              toPoint:[self.grid centerOfCellAtRow:row inColumn:col]
@@ -185,6 +189,9 @@ static const CGSize CARD_SIZE = {40, 60};
         }
         
         Card *card = [self.game cardAtIndex:[self.cardViews indexOfObject:cardView]];
+        if (card.matched) {
+            cardView.alpha = 0.3;
+        }
         if (card.isChosen) {
             cardView.faceUp = YES;
         }
