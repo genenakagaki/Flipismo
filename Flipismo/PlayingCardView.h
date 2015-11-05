@@ -14,8 +14,4 @@
 @property (nonatomic, strong) NSString *suit;
 @property (nonatomic) BOOL faceUp;
 
-enum {
-    CORNER_RADIUS = 12
-};
-
 @end

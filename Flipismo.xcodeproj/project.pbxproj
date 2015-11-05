@@ -155,27 +155,17 @@
 		CE82D7191BA222A80000F49D /* Flipismo */ = {
 			isa = PBXGroup;
 			children = (
+				CE82D7251BA222A80000F49D /* Main.storyboard */,
+				CEC55F341BEA8F720001FD9F /* View */,
+				CEC55F331BEA8F6A0001FD9F /* Controller */,
 				CE2E005D1BE8300F0013D134 /* Grid.h */,
 				CE2E005E1BE8300F0013D134 /* Grid.m */,
 				CE82D7481BA223EA0000F49D /* Model */,
 				CE82D7221BA222A80000F49D /* CardGameAppDelegate.h */,
 				CE82D7231BA222A80000F49D /* CardGameAppDelegate.m */,
-				CE82D7251BA222A80000F49D /* Main.storyboard */,
-				CE82D7281BA222A80000F49D /* CardGameViewController.h */,
-				CE82D7291BA222A80000F49D /* CardGameViewController.m */,
 				CE82D72B1BA222A80000F49D /* Images.xcassets */,
 				CE82D71A1BA222A80000F49D /* Supporting Files */,
-				CE8971181BD5807A00D19004 /* SetGameViewController.h */,
-				CE8971191BD5807A00D19004 /* SetGameViewController.m */,
-				CE89711B1BD5AEAD00D19004 /* HistoryViewController.h */,
-				CE89711C1BD5AEAD00D19004 /* HistoryViewController.m */,
-				CE2E00511BE800010013D134 /* PlayingCardView.h */,
-				CE2E00521BE800010013D134 /* PlayingCardView.m */,
-				CE2E00541BE800710013D134 /* TestViewContoller.h */,
-				CE2E00551BE800710013D134 /* TestViewContoller.m */,
 				CE2E00571BE805AE0013D134 /* Config.h */,
-				CE2E005A1BE8135B0013D134 /* SetCardView.h */,
-				CE2E005B1BE8135B0013D134 /* SetCardView.m */,
 			);
 			path = Flipismo;
 			sourceTree = "<group>";
@@ -230,6 +220,32 @@
 				CE12B8FD1BD819B900302EA7 /* History.m */,
 			);
 			name = Model;
+			sourceTree = "<group>";
+		};
+		CEC55F331BEA8F6A0001FD9F /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				CE82D7281BA222A80000F49D /* CardGameViewController.h */,
+				CE82D7291BA222A80000F49D /* CardGameViewController.m */,
+				CE8971181BD5807A00D19004 /* SetGameViewController.h */,
+				CE8971191BD5807A00D19004 /* SetGameViewController.m */,
+				CE89711B1BD5AEAD00D19004 /* HistoryViewController.h */,
+				CE89711C1BD5AEAD00D19004 /* HistoryViewController.m */,
+				CE2E00541BE800710013D134 /* TestViewContoller.h */,
+				CE2E00551BE800710013D134 /* TestViewContoller.m */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		CEC55F341BEA8F720001FD9F /* View */ = {
+			isa = PBXGroup;
+			children = (
+				CE2E00511BE800010013D134 /* PlayingCardView.h */,
+				CE2E00521BE800010013D134 /* PlayingCardView.m */,
+				CE2E005A1BE8135B0013D134 /* SetCardView.h */,
+				CE2E005B1BE8135B0013D134 /* SetCardView.m */,
+			);
+			name = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
