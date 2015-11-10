@@ -1,0 +1,596 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		CE12B8FE1BD819B900302EA7 /* History.m in Sources */ = {isa = PBXBuildFile; fileRef = CE12B8FD1BD819B900302EA7 /* History.m */; };
+		CE14EB561BEBBD9300D45CE4 /* MachismoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE14EB551BEBBD9300D45CE4 /* MachismoViewController.m */; };
+		CE2E00531BE800010013D134 /* PlayingCardView.m in Sources */ = {isa = PBXBuildFile; fileRef = CE2E00521BE800010013D134 /* PlayingCardView.m */; };
+		CE2E005C1BE8135B0013D134 /* SetCardView.m in Sources */ = {isa = PBXBuildFile; fileRef = CE2E005B1BE8135B0013D134 /* SetCardView.m */; };
+		CE2E005F1BE8300F0013D134 /* Grid.m in Sources */ = {isa = PBXBuildFile; fileRef = CE2E005E1BE8300F0013D134 /* Grid.m */; };
+		CE3833431BAA1032008FDCC3 /* Card.m in Sources */ = {isa = PBXBuildFile; fileRef = CE38333C1BAA1032008FDCC3 /* Card.m */; };
+		CE3833441BAA1032008FDCC3 /* Deck.m in Sources */ = {isa = PBXBuildFile; fileRef = CE38333E1BAA1032008FDCC3 /* Deck.m */; };
+		CE3833451BAA1032008FDCC3 /* PlayingCard.m in Sources */ = {isa = PBXBuildFile; fileRef = CE3833401BAA1032008FDCC3 /* PlayingCard.m */; };
+		CE3833461BAA1032008FDCC3 /* PlayingCardDeck.m in Sources */ = {isa = PBXBuildFile; fileRef = CE3833421BAA1032008FDCC3 /* PlayingCardDeck.m */; };
+		CE3833491BAA105E008FDCC3 /* CardMatchingGame.m in Sources */ = {isa = PBXBuildFile; fileRef = CE3833481BAA105E008FDCC3 /* CardMatchingGame.m */; };
+		CE43D8051BCEF36A00389127 /* SetCard.m in Sources */ = {isa = PBXBuildFile; fileRef = CE43D8041BCEF36A00389127 /* SetCard.m */; };
+		CE82D7141BA222A80000F49D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE82D7131BA222A80000F49D /* Foundation.framework */; };
+		CE82D7161BA222A80000F49D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE82D7151BA222A80000F49D /* CoreGraphics.framework */; };
+		CE82D7181BA222A80000F49D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE82D7171BA222A80000F49D /* UIKit.framework */; };
+		CE82D71E1BA222A80000F49D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = CE82D71C1BA222A80000F49D /* InfoPlist.strings */; };
+		CE82D7201BA222A80000F49D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CE82D71F1BA222A80000F49D /* main.m */; };
+		CE82D7241BA222A80000F49D /* CardGameAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CE82D7231BA222A80000F49D /* CardGameAppDelegate.m */; };
+		CE82D7271BA222A80000F49D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE82D7251BA222A80000F49D /* Main.storyboard */; };
+		CE82D72A1BA222A80000F49D /* CardGameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE82D7291BA222A80000F49D /* CardGameViewController.m */; };
+		CE82D72C1BA222A80000F49D /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE82D72B1BA222A80000F49D /* Images.xcassets */; };
+		CE82D7331BA222A80000F49D /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE82D7321BA222A80000F49D /* XCTest.framework */; };
+		CE82D7341BA222A80000F49D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE82D7131BA222A80000F49D /* Foundation.framework */; };
+		CE82D7351BA222A80000F49D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE82D7171BA222A80000F49D /* UIKit.framework */; };
+		CE82D73D1BA222A80000F49D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = CE82D73B1BA222A80000F49D /* InfoPlist.strings */; };
+		CE82D73F1BA222A80000F49D /* FlipismoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = CE82D73E1BA222A80000F49D /* FlipismoTests.m */; };
+		CE8971171BD5760A00D19004 /* SetCardDeck.m in Sources */ = {isa = PBXBuildFile; fileRef = CE8971161BD5760A00D19004 /* SetCardDeck.m */; };
+		CE89711A1BD5807A00D19004 /* SetGameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE8971191BD5807A00D19004 /* SetGameViewController.m */; };
+		CE89711D1BD5AEAD00D19004 /* HistoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE89711C1BD5AEAD00D19004 /* HistoryViewController.m */; };
+		CECEDEA81BF11A1C004DDD4D /* MyCGRect.m in Sources */ = {isa = PBXBuildFile; fileRef = CECEDEA71BF11A1C004DDD4D /* MyCGRect.m */; };
+		CECEDEAB1BF11C8B004DDD4D /* MyCGPoint.m in Sources */ = {isa = PBXBuildFile; fileRef = CECEDEAA1BF11C8B004DDD4D /* MyCGPoint.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		CE82D7361BA222A80000F49D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CE82D7081BA222A80000F49D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = CE82D70F1BA222A80000F49D;
+			remoteInfo = Flipismo;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		CE12B8FC1BD819B900302EA7 /* History.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = History.h; path = Model/History.h; sourceTree = "<group>"; };
+		CE12B8FD1BD819B900302EA7 /* History.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = History.m; path = Model/History.m; sourceTree = "<group>"; };
+		CE14EB541BEBBD9300D45CE4 /* MachismoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MachismoViewController.h; sourceTree = "<group>"; };
+		CE14EB551BEBBD9300D45CE4 /* MachismoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MachismoViewController.m; sourceTree = "<group>"; };
+		CE2E00511BE800010013D134 /* PlayingCardView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayingCardView.h; sourceTree = "<group>"; };
+		CE2E00521BE800010013D134 /* PlayingCardView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayingCardView.m; sourceTree = "<group>"; };
+		CE2E00571BE805AE0013D134 /* Config.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Config.h; sourceTree = "<group>"; };
+		CE2E005A1BE8135B0013D134 /* SetCardView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SetCardView.h; sourceTree = "<group>"; };
+		CE2E005B1BE8135B0013D134 /* SetCardView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SetCardView.m; sourceTree = "<group>"; };
+		CE2E005D1BE8300F0013D134 /* Grid.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Grid.h; sourceTree = "<group>"; };
+		CE2E005E1BE8300F0013D134 /* Grid.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Grid.m; sourceTree = "<group>"; };
+		CE38333B1BAA101A008FDCC3 /* Card.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Card.h; path = Model/Card.h; sourceTree = "<group>"; };
+		CE38333C1BAA1032008FDCC3 /* Card.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Card.m; path = Model/Card.m; sourceTree = "<group>"; };
+		CE38333D1BAA1032008FDCC3 /* Deck.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Deck.h; path = Model/Deck.h; sourceTree = "<group>"; };
+		CE38333E1BAA1032008FDCC3 /* Deck.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Deck.m; path = Model/Deck.m; sourceTree = "<group>"; };
+		CE38333F1BAA1032008FDCC3 /* PlayingCard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PlayingCard.h; path = Model/PlayingCard.h; sourceTree = "<group>"; };
+		CE3833401BAA1032008FDCC3 /* PlayingCard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PlayingCard.m; path = Model/PlayingCard.m; sourceTree = "<group>"; };
+		CE3833411BAA1032008FDCC3 /* PlayingCardDeck.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PlayingCardDeck.h; path = Model/PlayingCardDeck.h; sourceTree = "<group>"; };
+		CE3833421BAA1032008FDCC3 /* PlayingCardDeck.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PlayingCardDeck.m; path = Model/PlayingCardDeck.m; sourceTree = "<group>"; };
+		CE3833471BAA105E008FDCC3 /* CardMatchingGame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CardMatchingGame.h; path = Model/CardMatchingGame.h; sourceTree = "<group>"; };
+		CE3833481BAA105E008FDCC3 /* CardMatchingGame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CardMatchingGame.m; path = Model/CardMatchingGame.m; sourceTree = "<group>"; };
+		CE43D8031BCEF36A00389127 /* SetCard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SetCard.h; path = Model/SetCard.h; sourceTree = "<group>"; };
+		CE43D8041BCEF36A00389127 /* SetCard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SetCard.m; path = Model/SetCard.m; sourceTree = "<group>"; };
+		CE82D7101BA222A80000F49D /* Flipismo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Flipismo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		CE82D7131BA222A80000F49D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		CE82D7151BA222A80000F49D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		CE82D7171BA222A80000F49D /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		CE82D71B1BA222A80000F49D /* Flipismo-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Flipismo-Info.plist"; sourceTree = "<group>"; };
+		CE82D71D1BA222A80000F49D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		CE82D71F1BA222A80000F49D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		CE82D7211BA222A80000F49D /* Flipismo-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Flipismo-Prefix.pch"; sourceTree = "<group>"; };
+		CE82D7221BA222A80000F49D /* CardGameAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CardGameAppDelegate.h; sourceTree = "<group>"; };
+		CE82D7231BA222A80000F49D /* CardGameAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CardGameAppDelegate.m; sourceTree = "<group>"; };
+		CE82D7261BA222A80000F49D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		CE82D7281BA222A80000F49D /* CardGameViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CardGameViewController.h; sourceTree = "<group>"; };
+		CE82D7291BA222A80000F49D /* CardGameViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CardGameViewController.m; sourceTree = "<group>"; };
+		CE82D72B1BA222A80000F49D /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		CE82D7311BA222A80000F49D /* FlipismoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FlipismoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		CE82D7321BA222A80000F49D /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		CE82D73A1BA222A80000F49D /* FlipismoTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "FlipismoTests-Info.plist"; sourceTree = "<group>"; };
+		CE82D73C1BA222A80000F49D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		CE82D73E1BA222A80000F49D /* FlipismoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FlipismoTests.m; sourceTree = "<group>"; };
+		CE8971151BD5760A00D19004 /* SetCardDeck.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SetCardDeck.h; path = Model/SetCardDeck.h; sourceTree = "<group>"; };
+		CE8971161BD5760A00D19004 /* SetCardDeck.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SetCardDeck.m; path = Model/SetCardDeck.m; sourceTree = "<group>"; };
+		CE8971181BD5807A00D19004 /* SetGameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SetGameViewController.h; sourceTree = "<group>"; };
+		CE8971191BD5807A00D19004 /* SetGameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SetGameViewController.m; sourceTree = "<group>"; };
+		CE89711B1BD5AEAD00D19004 /* HistoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HistoryViewController.h; sourceTree = "<group>"; };
+		CE89711C1BD5AEAD00D19004 /* HistoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HistoryViewController.m; sourceTree = "<group>"; };
+		CECEDEA61BF11A1C004DDD4D /* MyCGRect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyCGRect.h; sourceTree = "<group>"; };
+		CECEDEA71BF11A1C004DDD4D /* MyCGRect.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyCGRect.m; sourceTree = "<group>"; };
+		CECEDEA91BF11C8B004DDD4D /* MyCGPoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyCGPoint.h; sourceTree = "<group>"; };
+		CECEDEAA1BF11C8B004DDD4D /* MyCGPoint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyCGPoint.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		CE82D70D1BA222A80000F49D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CE82D7161BA222A80000F49D /* CoreGraphics.framework in Frameworks */,
+				CE82D7181BA222A80000F49D /* UIKit.framework in Frameworks */,
+				CE82D7141BA222A80000F49D /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CE82D72E1BA222A80000F49D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CE82D7331BA222A80000F49D /* XCTest.framework in Frameworks */,
+				CE82D7351BA222A80000F49D /* UIKit.framework in Frameworks */,
+				CE82D7341BA222A80000F49D /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		CE82D7071BA222A80000F49D = {
+			isa = PBXGroup;
+			children = (
+				CE82D7191BA222A80000F49D /* Flipismo */,
+				CE82D7381BA222A80000F49D /* FlipismoTests */,
+				CE82D7121BA222A80000F49D /* Frameworks */,
+				CE82D7111BA222A80000F49D /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		CE82D7111BA222A80000F49D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				CE82D7101BA222A80000F49D /* Flipismo.app */,
+				CE82D7311BA222A80000F49D /* FlipismoTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		CE82D7121BA222A80000F49D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				CE82D7131BA222A80000F49D /* Foundation.framework */,
+				CE82D7151BA222A80000F49D /* CoreGraphics.framework */,
+				CE82D7171BA222A80000F49D /* UIKit.framework */,
+				CE82D7321BA222A80000F49D /* XCTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		CE82D7191BA222A80000F49D /* Flipismo */ = {
+			isa = PBXGroup;
+			children = (
+				CE82D7251BA222A80000F49D /* Main.storyboard */,
+				CEC55F341BEA8F720001FD9F /* View */,
+				CEC55F331BEA8F6A0001FD9F /* Controller */,
+				CE2E005D1BE8300F0013D134 /* Grid.h */,
+				CE2E005E1BE8300F0013D134 /* Grid.m */,
+				CE82D7481BA223EA0000F49D /* Model */,
+				CE82D7221BA222A80000F49D /* CardGameAppDelegate.h */,
+				CE82D7231BA222A80000F49D /* CardGameAppDelegate.m */,
+				CE82D72B1BA222A80000F49D /* Images.xcassets */,
+				CE82D71A1BA222A80000F49D /* Supporting Files */,
+				CE2E00571BE805AE0013D134 /* Config.h */,
+				CECEDEA61BF11A1C004DDD4D /* MyCGRect.h */,
+				CECEDEA71BF11A1C004DDD4D /* MyCGRect.m */,
+				CECEDEA91BF11C8B004DDD4D /* MyCGPoint.h */,
+				CECEDEAA1BF11C8B004DDD4D /* MyCGPoint.m */,
+			);
+			path = Flipismo;
+			sourceTree = "<group>";
+		};
+		CE82D71A1BA222A80000F49D /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				CE82D71B1BA222A80000F49D /* Flipismo-Info.plist */,
+				CE82D71C1BA222A80000F49D /* InfoPlist.strings */,
+				CE82D71F1BA222A80000F49D /* main.m */,
+				CE82D7211BA222A80000F49D /* Flipismo-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		CE82D7381BA222A80000F49D /* FlipismoTests */ = {
+			isa = PBXGroup;
+			children = (
+				CE82D73E1BA222A80000F49D /* FlipismoTests.m */,
+				CE82D7391BA222A80000F49D /* Supporting Files */,
+			);
+			path = FlipismoTests;
+			sourceTree = "<group>";
+		};
+		CE82D7391BA222A80000F49D /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				CE82D73A1BA222A80000F49D /* FlipismoTests-Info.plist */,
+				CE82D73B1BA222A80000F49D /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		CE82D7481BA223EA0000F49D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				CE43D8031BCEF36A00389127 /* SetCard.h */,
+				CE43D8041BCEF36A00389127 /* SetCard.m */,
+				CE3833471BAA105E008FDCC3 /* CardMatchingGame.h */,
+				CE3833481BAA105E008FDCC3 /* CardMatchingGame.m */,
+				CE38333B1BAA101A008FDCC3 /* Card.h */,
+				CE38333C1BAA1032008FDCC3 /* Card.m */,
+				CE38333D1BAA1032008FDCC3 /* Deck.h */,
+				CE38333E1BAA1032008FDCC3 /* Deck.m */,
+				CE38333F1BAA1032008FDCC3 /* PlayingCard.h */,
+				CE3833401BAA1032008FDCC3 /* PlayingCard.m */,
+				CE3833411BAA1032008FDCC3 /* PlayingCardDeck.h */,
+				CE3833421BAA1032008FDCC3 /* PlayingCardDeck.m */,
+				CE8971151BD5760A00D19004 /* SetCardDeck.h */,
+				CE8971161BD5760A00D19004 /* SetCardDeck.m */,
+				CE12B8FC1BD819B900302EA7 /* History.h */,
+				CE12B8FD1BD819B900302EA7 /* History.m */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		CEC55F331BEA8F6A0001FD9F /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				CE82D7281BA222A80000F49D /* CardGameViewController.h */,
+				CE82D7291BA222A80000F49D /* CardGameViewController.m */,
+				CE8971181BD5807A00D19004 /* SetGameViewController.h */,
+				CE8971191BD5807A00D19004 /* SetGameViewController.m */,
+				CE89711B1BD5AEAD00D19004 /* HistoryViewController.h */,
+				CE89711C1BD5AEAD00D19004 /* HistoryViewController.m */,
+				CE14EB541BEBBD9300D45CE4 /* MachismoViewController.h */,
+				CE14EB551BEBBD9300D45CE4 /* MachismoViewController.m */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		CEC55F341BEA8F720001FD9F /* View */ = {
+			isa = PBXGroup;
+			children = (
+				CE2E00511BE800010013D134 /* PlayingCardView.h */,
+				CE2E00521BE800010013D134 /* PlayingCardView.m */,
+				CE2E005A1BE8135B0013D134 /* SetCardView.h */,
+				CE2E005B1BE8135B0013D134 /* SetCardView.m */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		CE82D70F1BA222A80000F49D /* Flipismo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CE82D7421BA222A80000F49D /* Build configuration list for PBXNativeTarget "Flipismo" */;
+			buildPhases = (
+				CE82D70C1BA222A80000F49D /* Sources */,
+				CE82D70D1BA222A80000F49D /* Frameworks */,
+				CE82D70E1BA222A80000F49D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Flipismo;
+			productName = Flipismo;
+			productReference = CE82D7101BA222A80000F49D /* Flipismo.app */;
+			productType = "com.apple.product-type.application";
+		};
+		CE82D7301BA222A80000F49D /* FlipismoTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CE82D7451BA222A80000F49D /* Build configuration list for PBXNativeTarget "FlipismoTests" */;
+			buildPhases = (
+				CE82D72D1BA222A80000F49D /* Sources */,
+				CE82D72E1BA222A80000F49D /* Frameworks */,
+				CE82D72F1BA222A80000F49D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				CE82D7371BA222A80000F49D /* PBXTargetDependency */,
+			);
+			name = FlipismoTests;
+			productName = FlipismoTests;
+			productReference = CE82D7311BA222A80000F49D /* FlipismoTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		CE82D7081BA222A80000F49D /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = CardGame;
+				LastUpgradeCheck = 0510;
+				ORGANIZATIONNAME = "Lehman College";
+				TargetAttributes = {
+					CE82D7301BA222A80000F49D = {
+						TestTargetID = CE82D70F1BA222A80000F49D;
+					};
+				};
+			};
+			buildConfigurationList = CE82D70B1BA222A80000F49D /* Build configuration list for PBXProject "Flipismo" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = CE82D7071BA222A80000F49D;
+			productRefGroup = CE82D7111BA222A80000F49D /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				CE82D70F1BA222A80000F49D /* Flipismo */,
+				CE82D7301BA222A80000F49D /* FlipismoTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		CE82D70E1BA222A80000F49D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CE82D72C1BA222A80000F49D /* Images.xcassets in Resources */,
+				CE82D71E1BA222A80000F49D /* InfoPlist.strings in Resources */,
+				CE82D7271BA222A80000F49D /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CE82D72F1BA222A80000F49D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CE82D73D1BA222A80000F49D /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		CE82D70C1BA222A80000F49D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CE89711A1BD5807A00D19004 /* SetGameViewController.m in Sources */,
+				CE3833451BAA1032008FDCC3 /* PlayingCard.m in Sources */,
+				CE3833441BAA1032008FDCC3 /* Deck.m in Sources */,
+				CE82D7241BA222A80000F49D /* CardGameAppDelegate.m in Sources */,
+				CE82D72A1BA222A80000F49D /* CardGameViewController.m in Sources */,
+				CE12B8FE1BD819B900302EA7 /* History.m in Sources */,
+				CE2E005F1BE8300F0013D134 /* Grid.m in Sources */,
+				CE3833491BAA105E008FDCC3 /* CardMatchingGame.m in Sources */,
+				CE8971171BD5760A00D19004 /* SetCardDeck.m in Sources */,
+				CE3833461BAA1032008FDCC3 /* PlayingCardDeck.m in Sources */,
+				CE2E005C1BE8135B0013D134 /* SetCardView.m in Sources */,
+				CECEDEA81BF11A1C004DDD4D /* MyCGRect.m in Sources */,
+				CE82D7201BA222A80000F49D /* main.m in Sources */,
+				CE3833431BAA1032008FDCC3 /* Card.m in Sources */,
+				CE2E00531BE800010013D134 /* PlayingCardView.m in Sources */,
+				CECEDEAB1BF11C8B004DDD4D /* MyCGPoint.m in Sources */,
+				CE14EB561BEBBD9300D45CE4 /* MachismoViewController.m in Sources */,
+				CE43D8051BCEF36A00389127 /* SetCard.m in Sources */,
+				CE89711D1BD5AEAD00D19004 /* HistoryViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CE82D72D1BA222A80000F49D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CE82D73F1BA222A80000F49D /* FlipismoTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		CE82D7371BA222A80000F49D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = CE82D70F1BA222A80000F49D /* Flipismo */;
+			targetProxy = CE82D7361BA222A80000F49D /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		CE82D71C1BA222A80000F49D /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CE82D71D1BA222A80000F49D /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		CE82D7251BA222A80000F49D /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CE82D7261BA222A80000F49D /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		CE82D73B1BA222A80000F49D /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CE82D73C1BA222A80000F49D /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		CE82D7401BA222A80000F49D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		CE82D7411BA222A80000F49D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		CE82D7431BA222A80000F49D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Flipismo/Flipismo-Prefix.pch";
+				INFOPLIST_FILE = "Flipismo/Flipismo-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		CE82D7441BA222A80000F49D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Flipismo/Flipismo-Prefix.pch";
+				INFOPLIST_FILE = "Flipismo/Flipismo-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		CE82D7461BA222A80000F49D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Flipismo.app/Flipismo";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Flipismo/Flipismo-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "FlipismoTests/FlipismoTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		CE82D7471BA222A80000F49D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Flipismo.app/Flipismo";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Flipismo/Flipismo-Prefix.pch";
+				INFOPLIST_FILE = "FlipismoTests/FlipismoTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		CE82D70B1BA222A80000F49D /* Build configuration list for PBXProject "Flipismo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CE82D7401BA222A80000F49D /* Debug */,
+				CE82D7411BA222A80000F49D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CE82D7421BA222A80000F49D /* Build configuration list for PBXNativeTarget "Flipismo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CE82D7431BA222A80000F49D /* Debug */,
+				CE82D7441BA222A80000F49D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CE82D7451BA222A80000F49D /* Build configuration list for PBXNativeTarget "FlipismoTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CE82D7461BA222A80000F49D /* Debug */,
+				CE82D7471BA222A80000F49D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = CE82D7081BA222A80000F49D /* Project object */;
+}
