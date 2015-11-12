@@ -12,6 +12,7 @@
 #import "Card.h"
 #import "Deck.h"
 #import "MyCGPoint.h"
+#import "MyToastView.h"
 
 @interface CardGameViewController : UIViewController
 

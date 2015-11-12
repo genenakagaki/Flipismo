@@ -107,16 +107,12 @@
     UIRectFill(self.bounds);
     
     
-    NSLog(@"is");
     if (self.isChosen) {
         [[UIColor redColor] setStroke];
         roundedRect.lineWidth = 4.0;
-        
-        NSLog(@"ischosen");
     }
     else {
         [[UIColor blackColor] setStroke];
-        NSLog(@"ischosen not");
     }
 
     [roundedRect stroke];
@@ -162,8 +158,6 @@
         
         [self drawCardContentWith:shapeBoundsArr];
     }
-    
-    NSLog(@"%f: %f", self.bounds.size.width, self.bounds.size.height);
 }
 
 - (void)drawCardContentWith:(NSArray *)shapeBoundsArr {
@@ -191,21 +185,37 @@
                               bounds.size.width * (1.0 - self.faceCardScaleFactor),
                               bounds.size.height * (1.0 - self.faceCardScaleFactor));
     
-    UIBezierPath *p = [UIBezierPath bezierPath];
-    [p moveToPoint:CGPointMake(rect.origin.x + rect.size.width/2,
+    UIBezierPath *diamond = [UIBezierPath bezierPath];
+    [diamond moveToPoint:CGPointMake(rect.origin.x + rect.size.width/2,
                                rect.origin.y)];
-    [p addLineToPoint:CGPointMake(rect.origin.x + rect.size.width,
+    [diamond addLineToPoint:CGPointMake(rect.origin.x + rect.size.width,
                                   rect.origin.y + rect.size.height/2)];
-    [p addLineToPoint:CGPointMake(rect.origin.x + rect.size.width/2,
+    [diamond addLineToPoint:CGPointMake(rect.origin.x + rect.size.width/2,
                                   rect.origin.y + rect.size.height)];
-    [p addLineToPoint:CGPointMake(rect.origin.x,
+    [diamond addLineToPoint:CGPointMake(rect.origin.x,
                                   rect.origin.y + rect.size.height/2)];
-    [p closePath];
+    [diamond closePath];
     
     [self setColorAndShading];
     
-    [p stroke];
-    [p fill];
+//    if ([self.shading isEqualToString:@"shaded"]) {
+//        CGContextRef context = UIGraphicsGetCurrentContext();
+//        CGContextSaveGState(context);
+//        
+//        [diamond addClip];
+//        
+//        CGPoint point = CGPointMake(0, 0);
+//        
+//        while (point.y < 100) {
+//            [diamond moveToPoint:point];
+//            [diamond addLineToPoint:CGPointMake(1000, point.y)];
+//            
+//            point.y += 2;
+//        }
+//    }
+    
+    [diamond stroke];
+    [diamond fill];
 }
 
 - (void)drawOvalIn:(MyCGRect *)boundsObj {
@@ -282,15 +292,12 @@
     }
     else if ([self.shading isEqualToString:@"shaded"]) {
         [color setStroke];
-        
-        color = [color colorWithAlphaComponent:0.3f];
+        color = [color colorWithAlphaComponent:0.3];
         [color setFill];
-        
     }
     else if ([self.shading isEqualToString:@"outlined"]) {
         [color setStroke];
         [[UIColor whiteColor] setFill];
-        
     }
 }
 

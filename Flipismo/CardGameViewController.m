@@ -10,15 +10,13 @@
 
 @interface CardGameViewController ()
 
+@property (nonatomic)BOOL isGathered;
+
 - (IBAction)touchDealButton:(UIButton *)sender;
 
 @end
 
 @implementation CardGameViewController
-
-static const CGPoint gatherPoint = {100, 100};
-
-static const CGPoint dealPoint = {0, -200};
 
 - (void)viewDidLoad
 {
@@ -34,20 +32,21 @@ static const CGPoint dealPoint = {0, -200};
     
     _grid = nil;
     
-    [self dealCardsFromPoint:[[MyCGPoint alloc] initWithPoint:dealPoint]];
+    [self dealCardsFromPoint:[[MyCGPoint alloc]
+                              initWithPoint:CGPointMake(self.view.center.x, -100)]];
 }
 
 - (void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation {
     [self log:@"didRotateFromInterfaceOrientation"];
     _grid = nil;
     
-    [self gatherCardsToPoint:gatherPoint];
+    [self gatherCardsToPoint:self.view.center];
     
-    MyCGPoint *point = [[MyCGPoint alloc] initWithPoint:gatherPoint];
+    MyCGPoint *point = [[MyCGPoint alloc] initWithPoint:self.view.center];
     
     [self performSelector:@selector(dealCardsFromPoint:)
                withObject:point
-               afterDelay:1];
+               afterDelay:0.8];
 }
 
 - (void)log:(NSString *)string {
@@ -62,7 +61,7 @@ static const CGPoint dealPoint = {0, -200};
                                                   usingDeck:[self createDeck]];
         [self createCardViews];
         
-        MyCGPoint *dealPointObj = [[MyCGPoint alloc] initWithPoint:dealPoint];
+        MyCGPoint *dealPointObj = [[MyCGPoint alloc] initWithPoint:CGPointMake(self.view.center.x, -80)];
         
         [self dealCardsFromPoint:dealPointObj];
         
@@ -95,6 +94,23 @@ static const CGPoint dealPoint = {0, -200};
 - (void)createCardViews {
 }
 
+- (IBAction)pinch:(UIPinchGestureRecognizer *)gesture {
+    [self log:@"pinch"];
+    
+    if ((gesture.state == UIGestureRecognizerStateChanged) ||
+        (gesture.state == UIGestureRecognizerStateEnded)) {
+        [self gatherCardsToPoint:self.view.center];
+        self.isGathered = YES;
+    }
+}
+
+- (IBAction)pan:(UIPanGestureRecognizer *)sender {
+    
+    CGPoint panLocation = [sender locationInView:self.gameView];
+    
+    [self gatherCardsToPoint:panLocation];
+}
+
 - (void)gatherCardsToPoint:(CGPoint)point {
     [self log:@"gatherCardsToPoint" ];
     
@@ -114,7 +130,7 @@ static const CGPoint dealPoint = {0, -200};
     
     CGPoint point = pointObj.cgPoint;
 
-    float delay = 0.1;
+    float delay = 0.04;
 
     int row = 0;
     int col = 0;
@@ -147,7 +163,7 @@ static const CGPoint dealPoint = {0, -200};
 - (IBAction)touchDealButton:(UIButton *)sender {
     [self log:@"touchDealButton" ];
     
-    [self gatherCardsToPoint:CGPointMake(-200, 100)];
+    [self gatherCardsToPoint:CGPointMake(-50, self.view.frame.size.height/2)];
     
     _game = nil;
     
@@ -157,7 +173,7 @@ static const CGPoint dealPoint = {0, -200};
 - (void)animateCardMovement:(UIView *)cardView
                        toPoint:(CGPoint)point
                      withDelay:(float)delay {
-    [UIView animateWithDuration:0.5
+    [UIView animateWithDuration:0.3
                           delay: delay
                         options: UIViewAnimationOptionCurveEaseIn
                      animations:^{
@@ -171,9 +187,21 @@ static const CGPoint dealPoint = {0, -200};
     [self log:@"tap" ];
     
     CGPoint tapLocation = [sender locationInView:self.gameView];
+    
+    if (self.isGathered) {
+        UIView *cardView = [self.cardViews objectAtIndex:0];
+        
+        if (CGRectContainsPoint(cardView.frame, tapLocation)) {
+            self.isGathered = NO;
+            [self dealCardsFromPoint:[[MyCGPoint alloc] initWithPoint:cardView.center]];
+            
+            return;
+        }
+    }
+        
     for (UIView *cardView in self.cardViews) {
         // if tap location is contained in a cardView
-        if (CGRectContainsPoint([cardView frame], tapLocation)) {
+        if (CGRectContainsPoint(cardView.frame, tapLocation)) {
             [self handleCardChoose:cardView];
         }
     }

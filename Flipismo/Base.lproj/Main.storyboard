@@ -7,6 +7,17 @@
         <!--Machismo View Controller - Machismo-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
+                <pinchGestureRecognizer id="IPg-8L-Jt4">
+                    <connections>
+                        <action selector="pinch:" destination="vXZ-lx-hvc" id="Ynz-MT-IyR"/>
+                    </connections>
+                </pinchGestureRecognizer>
+                <tapGestureRecognizer id="XPm-Uz-HXk">
+                    <connections>
+                        <action selector="tap:" destination="vXZ-lx-hvc" id="ZkD-Dg-Lnt"/>
+                    </connections>
+                </tapGestureRecognizer>
                 <viewController title="Machismo" id="vXZ-lx-hvc" customClass="MachismoViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
@@ -42,10 +53,13 @@
                                 <gestureRecognizers/>
                                 <connections>
                                     <outletCollection property="gestureRecognizers" destination="XPm-Uz-HXk" appends="YES" id="Jiw-Np-C0m"/>
+                                    <outletCollection property="gestureRecognizers" destination="IPg-8L-Jt4" appends="YES" id="amb-cs-oxq"/>
+                                    <outletCollection property="gestureRecognizers" destination="UYG-2T-Isk" appends="YES" id="zO2-ms-gaO"/>
                                 </connections>
                             </view>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="0.25098040700000002" alpha="1" colorSpace="calibratedRGB"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="JK3-F7-Mc9" secondAttribute="bottom" constant="7" id="2jA-V5-MY7"/>
                             <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="6cf-uc-2lw" secondAttribute="bottom" constant="6" id="3KR-XC-jTJ"/>
@@ -63,12 +77,11 @@
                         <outlet property="scoreLabel" destination="JK3-F7-Mc9" id="Qkk-wA-gBa"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer id="XPm-Uz-HXk">
+                <panGestureRecognizer minimumNumberOfTouches="1" id="UYG-2T-Isk">
                     <connections>
-                        <action selector="tap:" destination="vXZ-lx-hvc" id="ZkD-Dg-Lnt"/>
+                        <action selector="pan:" destination="vXZ-lx-hvc" id="1ZG-WU-6je"/>
                     </connections>
-                </tapGestureRecognizer>
+                </panGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="824" y="-245"/>
         </scene>
@@ -167,35 +180,57 @@
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QE4-de-nz3">
-                                <rect key="frame" x="18" y="66" width="284" height="329"/>
+                                <rect key="frame" x="18" y="66" width="284" height="297"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.40000000596046448" green="0.80000001192092896" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <gestureRecognizers/>
                                 <connections>
                                     <outletCollection property="gestureRecognizers" destination="TrN-J0-jrM" appends="YES" id="ana-5X-Qpq"/>
+                                    <outletCollection property="gestureRecognizers" destination="y24-74-b7X" appends="YES" id="Iab-bF-5SQ"/>
+                                    <outletCollection property="gestureRecognizers" destination="PKT-1C-HXL" appends="YES" id="FWY-HI-75I"/>
                                 </connections>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e8B-ez-rye">
                                 <rect key="frame" x="126" y="402" width="68" height="23"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="68" id="6KZ-d7-xui"/>
+                                </constraints>
                                 <state key="normal" title="Deal 3">
                                     <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
-                                    <action selector="touchDealThree:" destination="4gt-43-kYs" eventType="touchUpInside" id="zDO-j9-ChH"/>
+                                    <action selector="touchDealThree:" destination="4gt-43-kYs" eventType="touchUpInside" id="hf8-l3-CWy"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ldX-td-TUw">
+                                <rect key="frame" x="231" y="365" width="64" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.50196081399917603" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="64" id="SYw-5p-mUy"/>
+                                </constraints>
+                                <color key="tintColor" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Cheat">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="touchCheatButton:" destination="4gt-43-kYs" eventType="touchUpInside" id="C4A-eF-Mrx"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.40000000596046448" green="0.80000001192092896" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
+                            <constraint firstItem="EyA-YQ-I9g" firstAttribute="top" secondItem="QE4-de-nz3" secondAttribute="bottom" constant="68" id="5nC-3G-5AC"/>
                             <constraint firstAttribute="trailing" secondItem="e8B-ez-rye" secondAttribute="trailing" constant="126" id="AGC-PE-u21"/>
                             <constraint firstAttribute="trailing" secondItem="B1S-G3-3Rc" secondAttribute="trailing" constant="25" id="DxY-ue-Mbq"/>
                             <constraint firstItem="EyA-YQ-I9g" firstAttribute="top" secondItem="bVW-aI-wn4" secondAttribute="bottom" constant="7" id="GxG-3X-ljJ"/>
                             <constraint firstAttribute="trailing" secondItem="QE4-de-nz3" secondAttribute="trailing" constant="18" id="NR5-dd-1TV"/>
                             <constraint firstItem="bVW-aI-wn4" firstAttribute="leading" secondItem="MM4-BN-7OH" secondAttribute="leading" constant="20" id="P67-EJ-FSz"/>
-                            <constraint firstItem="EyA-YQ-I9g" firstAttribute="top" secondItem="QE4-de-nz3" secondAttribute="bottom" constant="36" id="XOx-Q3-msF"/>
+                            <constraint firstAttribute="trailing" secondItem="ldX-td-TUw" secondAttribute="trailing" constant="25" id="aH1-2M-LGb"/>
+                            <constraint firstItem="EyA-YQ-I9g" firstAttribute="top" secondItem="ldX-td-TUw" secondAttribute="bottom" constant="36" id="bb4-Me-S3u"/>
                             <constraint firstItem="EyA-YQ-I9g" firstAttribute="top" secondItem="e8B-ez-rye" secondAttribute="bottom" constant="7" id="gpt-JX-Eb4"/>
                             <constraint firstItem="e8B-ez-rye" firstAttribute="leading" secondItem="MM4-BN-7OH" secondAttribute="leading" constant="126" id="igp-Bt-R9d"/>
                             <constraint firstItem="QE4-de-nz3" firstAttribute="top" secondItem="VP8-LT-CuQ" secondAttribute="bottom" constant="2" id="kpe-nG-TDX"/>
@@ -205,6 +240,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Set Game" id="vhc-nf-1qh"/>
                     <connections>
+                        <outlet property="deal3Button" destination="e8B-ez-rye" id="jLf-04-eMv"/>
                         <outlet property="gameView" destination="QE4-de-nz3" id="Y3L-ho-aQQ"/>
                         <outlet property="scoreLabel" destination="bVW-aI-wn4" id="XxG-jY-HrN"/>
                     </connections>
@@ -215,6 +251,16 @@
                         <action selector="tap:" destination="4gt-43-kYs" id="LZx-nm-dZC"/>
                     </connections>
                 </tapGestureRecognizer>
+                <pinchGestureRecognizer id="y24-74-b7X">
+                    <connections>
+                        <action selector="pinch:" destination="4gt-43-kYs" id="0Zh-Mx-lDx"/>
+                    </connections>
+                </pinchGestureRecognizer>
+                <panGestureRecognizer minimumNumberOfTouches="1" id="PKT-1C-HXL">
+                    <connections>
+                        <action selector="pan:" destination="4gt-43-kYs" id="SOb-9e-npO"/>
+                    </connections>
+                </panGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="824" y="413"/>
         </scene>

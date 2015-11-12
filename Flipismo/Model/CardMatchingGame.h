@@ -18,6 +18,8 @@
 
 - (void)chooseCardAtIndex:(NSUInteger)index;
 - (Card *)cardAtIndex:(NSUInteger)index;
+- (NSArray *)getIndiciesOfMatches:(NSArray *)cardsToCheck;
+- (void)addScore:(NSInteger)score;
 
 @property (nonatomic, getter = isStarted) BOOL started;
 @property (nonatomic, readonly) NSInteger score;

@@ -30,6 +30,10 @@
     return _history;
 }
 
+- (void)addScore:(NSInteger)score {
+    _score += score;
+}
+
 - (instancetype)initWithCardCount:(NSUInteger)count usingDeck:(Deck *)deck {
     self = [super init]; // super's designated initializer
     
@@ -104,7 +108,7 @@ static const int MATCH_BONUS      = 4;
                     [_lastAction setScore:-MISMATCH_PENALTY];
                     
                     [_lastAction.cards addObject:card];
-
+                    
                     for (Card *otherChosenCard in otherChosenCards) {
                         [_lastAction.cards addObject:otherChosenCard];
                         otherChosenCard.chosen = NO;
@@ -121,6 +125,54 @@ static const int MATCH_BONUS      = 4;
             card.chosen = YES;
         }
     }
+}
+
+- (int)checkForMatchOf:(Card *)card with:(NSArray *)otherChosenCards {
+    int result = 0;
+    
+    if ([otherChosenCards count] == self.numToMatch-1) {
+        _lastAction = [[History alloc] init];
+        int matchScore = [card match:otherChosenCards];
+        
+        if (matchScore) {
+            result = matchScore * MATCH_BONUS;
+        }
+        else {
+            result = - MISMATCH_PENALTY;
+        }
+    }
+    
+    return result;
+}
+
+- (NSArray *)getIndiciesOfMatches:(NSMutableArray *)cardsToCheck {
+    NSMutableArray *matches = [[NSMutableArray alloc] init];
+    
+    int matchScore = 0;
+    
+    NSMutableArray *twoOtherCards;
+    
+    for (int i = 0; i < [cardsToCheck count]; i++) {
+        for (int j = i+1; j < [cardsToCheck count]; j++) {
+            for (int k = j+1; k < [cardsToCheck count]; k++) {
+                twoOtherCards = [[NSMutableArray alloc] init];
+                [twoOtherCards addObject:[cardsToCheck objectAtIndex:j]];
+                [twoOtherCards addObject:[cardsToCheck objectAtIndex:k]];
+                
+                matchScore = [self checkForMatchOf:[cardsToCheck objectAtIndex:i]
+                                              with:twoOtherCards];
+                if (matchScore > 0) {
+                    [matches addObject:[NSNumber numberWithInt:i]];
+                    [matches addObject:[NSNumber numberWithInt:j]];
+                    [matches addObject:[NSNumber numberWithInt:k]];
+                    goto END;
+                }
+            }
+        }
+    }
+    END:
+    
+    return matches;
 }
 
 // getter

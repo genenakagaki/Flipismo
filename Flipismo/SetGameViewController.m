@@ -12,16 +12,37 @@
 
 @property (nonatomic) int gameCardIndex;
 
-- (IBAction)touchDealThree:(UIButton *)sender;
+@property (weak, nonatomic) IBOutlet UIButton *deal3Button;
+
+- (IBAction)touchCheatButton:(id)sender;
+
+@property (nonatomic)MyToastView *toast;
 
 @end
 
 @implementation SetGameViewController
 
+@synthesize toast = _toast;
+
 static const CGSize CARD_SIZE = {60, 40};
+
+static const int CARD_COUNT = 81;
 
 - (void)log:(NSString *)string {
     NSLog(@"%@: %@", NSStringFromClass([self class]), string);
+}
+
+- (MyToastView *)toast {
+    if (!_toast) {
+        _toast = [[MyToastView alloc]
+                  initWithFrame:CGRectMake(40,
+                                           self.view.frame.size.height - 140,
+                                           self.view.frame.size.width - 80,
+                                           40)];
+        [self.view addSubview:_toast];
+    }
+    
+    return _toast;
 }
 
 - (void)gameConfig {
@@ -56,6 +77,12 @@ static const CGSize CARD_SIZE = {60, 40};
 }
 
 - (void)createCardView {
+    if (self.gameCardIndex >= CARD_COUNT) {
+        [self.toast showToast:@"No more cards in deck"];
+        
+        return;
+    }
+    
     SetCardView *cardView = [[SetCardView alloc] init];
     
     UIColor *transparent = [UIColor whiteColor];
@@ -84,6 +111,15 @@ static const CGSize CARD_SIZE = {60, 40};
 }
 
 - (IBAction)touchDealThree:(UIButton *)sender {
+    NSMutableArray *cardArr = [[NSMutableArray alloc] init];
+    for (SetCardView *cardView in self.cardViews) {
+        [cardArr addObject:[self.game cardAtIndex:cardView.gameCardIndex]];
+    }
+    
+    NSArray *matches = [self.game getIndiciesOfMatches:cardArr];
+    
+    
+    
     int updateIndex = 0;
     
     for (int i = 0; i < 3; i ++) {
@@ -96,7 +132,42 @@ static const CGSize CARD_SIZE = {60, 40};
         }
     }
     
+    if (updateIndex == CARD_COUNT -1) {
+        return;
+    }
+    
+    if (updateIndex == 0) {
+        [self.toast showToast:@"Display card limit reached"];
+    }
+    else if ([matches count] > 0) {
+        [self.toast showToast:@"Missed matches: -2pts"];
+        [self.game addScore:-2];
+    }
+    
     [self updateCardsFrom:updateIndex];
+    
+    [self updateUI];
+}
+
+- (IBAction)touchCheatButton:(id)sender {
+    NSMutableArray *cardArr = [[NSMutableArray alloc] init];
+    for (SetCardView *cardView in self.cardViews) {
+        [cardArr addObject:[self.game cardAtIndex:cardView.gameCardIndex]];
+    }
+    
+    NSArray *matches = [self.game getIndiciesOfMatches:cardArr];
+    
+    if ([matches count] > 0) {
+        [self.toast showToast:@"You are cheating..."];
+        
+        for (NSNumber *cardIndex in matches) {
+            SetCardView *cardView = [self.cardViews objectAtIndex:[cardIndex intValue]];
+            cardView.isChosen = YES;
+        }
+    }
+    else {
+        [self.toast showToast:@"No more matches"];
+    }
 }
 
 - (void)updateCardsFrom:(int)index {
@@ -107,7 +178,7 @@ static const CGSize CARD_SIZE = {60, 40};
     
     CGPoint point = CGPointMake(0, -200);
     
-    int delay = 0.1;
+    int delay = 0.02;
     
     for (int i = index; i < [self.cardViews count]; i++) {
         
@@ -171,8 +242,6 @@ static const CGSize CARD_SIZE = {60, 40};
     
     for (SetCardView *cardView in cardViewsToRemove) {
         [self.cardViews removeObject:cardView];
-        
-        Card *card = [self.game cardAtIndex:cardView.gameCardIndex];
     }
 
     [self cleanCardLayout];
